@@ -1,0 +1,55 @@
+package com.itheima.Demo04.Exception;
+/*
+    java.lang.Throwable: 所有错误或者异常的超类
+        1.Exception：编译期异常 （处理异常即可继续执行代码）
+            RuntimeException：运行期异常
+        2.Error: 错误 （必须修改源码）
+ */
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Demo04Exception {
+    public static void main(String[] args)  {
+        // Exception：编译期异常
+        // 格式化日期
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        // 把字符串格式的日期解析为Date格式的日期
+        // 1.throws ParseException处理异常
+        /*
+            正常情况
+            Date date = sdf.parse("1999-8-16");
+            System.out.println(date); // Mon Aug 16 00:00:00 CST 1999
+        */
+
+        /*
+            不正常情况
+            Date date = sdf.parse("19998-16");
+            System.out.println(date); // ParseException解析异常
+         */
+        // 2.try-catch处理异常
+       /* Date date = null;
+        try {
+            date = sdf.parse("19998-16");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(date);*/
+
+        // 运行期异常
+        /*int[] arr ={1,2,3};
+        try {
+            // 可能会出现异常的代码
+            System.out.println(arr[3]); // ArrayIndexOutOfBoundsException越界
+        }catch (Exception e){
+            // 异常的处理逻辑
+            System.out.println(e);
+        }*/
+
+        //Error
+        int[] arr = new int[1024*1024*1024];// OutOfMemoryError内存溢出
+        //必须修改代码才能继续执行
+        System.out.println("后续代码");
+    }
+}

@@ -1,0 +1,15 @@
+package com.itheima.Demo06.MyException;
+
+public class RegisterException extends /*Exception*/ RuntimeException{
+    // 添加一个空参数的构造方法
+
+    public RegisterException() {
+        super();
+    }
+
+    // 添加一个带异常信息的构造方法,调用父类带异常信息的构造方法
+    public RegisterException(String message) {
+        super(message);
+    }
+
+}
